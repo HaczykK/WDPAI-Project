@@ -8,9 +8,7 @@
 <body>
     <header>
         <h1>DoGrywka</h1>
-        <nav>
-            <a href="/">Strona główna</a>
-        </nav>
+        <p>Szczegóły ustawki sportowej</p>
     </header>
 
     <main>
@@ -47,6 +45,17 @@
             </section>
         </article>
     </main>
+
+    <nav>
+        <h2>Nawigacja główna</h2>
+        <ul>
+            <li><a href="/">Baza</a></li>
+            <li><a href="/rejon">Rejon</a></li>
+            <li><a href="/game-create">Plus / Dodaj</a></li>
+            <li><a href="/szatnia">Szatnia</a></li>
+            <li><a href="/profile">Profil</a></li>
+        </ul>
+    </nav>
 
     <footer>
         <p>&copy; <?= date('Y') ?> DoGrywka</p>
