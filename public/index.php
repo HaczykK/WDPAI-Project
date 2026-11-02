@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use App\Controller\DefaultController;
 use App\Controller\GameController;
 use App\Routing;
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $routing = new Routing();
 
