@@ -170,8 +170,8 @@
         <p class="footer-copyright">&copy; <?= date('Y') ?> DoGrywka</p>
     </footer>
 
-    <!-- Dolna nawigacja mobilna -->
-    <nav class="mobile-nav" aria-label="Nawigacja mobilna">
+    <!-- Dolna nawigacja mobilna / Pasek boczny na desktopie -->
+    <nav class="mobile-nav" aria-label="Główna nawigacja">
         <h2 class="visually-hidden">Nawigacja główna</h2>
         <ul class="mobile-nav-list">
             <li class="mobile-nav-item">
@@ -188,7 +188,8 @@
             </li>
             <li class="mobile-nav-item nav-item-action">
                 <a href="/game-create" class="mobile-nav-link mobile-nav-link-add" aria-label="Dodaj ustawkę">
-                    <span>+</span>
+                    <span class="nav-icon-add">+</span>
+                    <span class="nav-label-add">Dodaj ustawkę</span>
                 </a>
             </li>
             <li class="mobile-nav-item">

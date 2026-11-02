@@ -33,23 +33,38 @@
     --border-radius: 12px;
     --border-radius-lg: 18px;
     --border-radius-full: 9999px;
+
+    /* Układ desktopowy */
+    --sidebar-width: 260px;
 }
 
-/* Uniwersalny reset box-modelu */
+/* ==========================================================================
+   Reset box-modelu i dostępność (:focus-visible)
+   ========================================================================== */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Podstawowe style bazowe dla body (mobile-first) */
+/* Stan :focus-visible dla przycisków i linków (Kryterium dostępności WCAG) */
+:focus-visible,
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Podstawowe style bazowe dla body (Mobile-First)
+   ========================================================================== */
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.5;
-    padding-bottom: 85px; /* Odstęp zapobiegający zasłonięciu treści przez .mobile-nav */
+    padding-bottom: 85px; /* Odstęp zapobiegający zasłonięciu treści przez dolny pasek nawigacji */
 }
 
 a {
@@ -80,7 +95,9 @@ a {
     margin: 0 auto;
 }
 
-/* Nagłówek aplikacji */
+/* ==========================================================================
+   Nagłówek aplikacji i Karta gracza
+   ========================================================================== */
 .app-header {
     padding: var(--space-3) var(--space-3) 0;
     max-width: 480px;
@@ -130,6 +147,13 @@ a {
     justify-content: center;
     font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.header-btn:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 .header-btn .dot-badge {
@@ -225,7 +249,9 @@ a {
     font-weight: 600;
 }
 
-/* Nagłówki sekcji */
+/* ==========================================================================
+   Nagłówki sekcji
+   ========================================================================== */
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -261,13 +287,21 @@ a {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-accent);
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.section-tag:hover {
+    color: var(--color-text);
+    text-decoration: underline;
 }
 
 .section-tag-muted {
     color: var(--color-text-muted);
 }
 
-/* 4. Układ dla sekcji 'Zdobyte vlepki' (Flexbox z zawijaniem i gap: var(--space-2)) */
+/* ==========================================================================
+   Sekcja: Zdobyte vlepki (Układ i stany :hover)
+   ========================================================================== */
 .stickers-list {
     display: flex;
     flex-wrap: wrap;
@@ -289,7 +323,14 @@ a {
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.sticker-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .sticker-badge {
@@ -303,6 +344,11 @@ a {
     justify-content: center;
     font-size: 1.8rem;
     margin-bottom: var(--space-1);
+    transition: transform 0.2s ease;
+}
+
+.sticker-card:hover .sticker-badge {
+    transform: scale(1.05);
 }
 
 .sticker-name {
@@ -319,7 +365,9 @@ a {
     margin-top: 2px;
 }
 
-/* 5. Układ Grid dla sekcji 'Ustawki na rejonie' (Grid i gap: var(--space-3)) */
+/* ==========================================================================
+   Sekcja: Ustawki na rejonie (Karty, Grid i stany :hover)
+   ========================================================================== */
 .matches-section {
     display: grid;
     gap: var(--space-3);
@@ -339,6 +387,14 @@ a {
     flex-direction: column;
     gap: var(--space-2);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-card);
+    background-color: var(--color-surface-hover);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .match-header {
@@ -425,6 +481,7 @@ a {
     gap: 4px;
 }
 
+/* Przycisk CTA 'Dołącz do gry' */
 .btn-join {
     background-color: var(--color-primary);
     color: #ffffff;
@@ -437,12 +494,13 @@ a {
     text-align: center;
     text-decoration: none;
     box-shadow: 0 0 12px var(--color-primary-glow);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .btn-join:hover {
     background-color: var(--color-primary-hover);
-    box-shadow: 0 0 18px var(--color-primary-glow);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+    transform: translateY(-2px);
 }
 
 /* Stopka aplikacji */
@@ -467,7 +525,9 @@ a {
     opacity: 0.4;
 }
 
-/* 3. Nawigacja mobilna (Flexbox wyśrodkowany z position: fixed na dole ekranu) */
+/* ==========================================================================
+   Nawigacja mobilna (Pasek dolny z Flexbox)
+   ========================================================================== */
 .mobile-nav {
     position: fixed;
     bottom: 0;
@@ -512,7 +572,7 @@ a {
     letter-spacing: 0.5px;
     padding: var(--space-1);
     position: relative;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .mobile-nav-link:hover,
@@ -536,7 +596,7 @@ a {
     line-height: 1;
 }
 
-/* Wyróżniony przycisk PLUS w centrum paska */
+/* Centralny przycisk PLUS w wersji mobilnej */
 .nav-item-action .mobile-nav-link-add {
     width: 48px;
     height: 48px;
@@ -551,10 +611,168 @@ a {
     box-shadow: 0 0 16px var(--color-primary-glow);
     transform: translateY(-8px);
     border: 3px solid var(--color-bg);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .nav-item-action .mobile-nav-link-add:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 0 22px var(--color-primary-glow);
+}
+
+.nav-label-add {
+    display: none; /* Domyślnie ukryty na telefonach */
+}
+
+/* ==========================================================================
+   Media Query dla ekranów średnich i dużych (Tablet / Desktop: min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    /* Usunięcie dolnego paddingu wymaganego na mobile */
+    body {
+        padding-bottom: 0;
+    }
+
+    /* Główna zawartość strony z marginesem z lewej strony, by nie chować się pod sidebar */
+    main,
+    .home-layout {
+        margin-left: var(--sidebar-width);
+        max-width: 1200px;
+        margin-right: auto;
+        padding: var(--space-4);
+        gap: var(--space-5);
+    }
+
+    .app-header {
+        margin-left: var(--sidebar-width);
+        max-width: 1200px;
+        margin-right: auto;
+        padding: var(--space-4) var(--space-4) 0;
+    }
+
+    .app-footer {
+        margin-left: var(--sidebar-width);
+        max-width: 1200px;
+        margin-right: auto;
+        padding: var(--space-4) var(--space-4) var(--space-5);
+    }
+
+    /* Przekształcenie dolnego paska nawigacji w pionowy sidebar po lewej krawędzi */
+    .mobile-nav {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        width: var(--sidebar-width);
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: var(--space-4) var(--space-3);
+        border-top: none;
+        border-right: 1px solid var(--color-border);
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+        overflow-y: auto;
+    }
+
+    /* Brand / Logo wewnątrz paska bocznego na desktopie */
+    .mobile-nav::before {
+        content: "DOGRYWKA";
+        display: block;
+        font-size: 1.35rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: var(--color-text);
+        padding: var(--space-2) var(--space-2) var(--space-4);
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: var(--space-3);
+    }
+
+    .mobile-nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2);
+    }
+
+    .mobile-nav-item {
+        width: 100%;
+    }
+
+    .mobile-nav-link {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-2) var(--space-3);
+        border-radius: var(--border-radius-sm);
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .mobile-nav-link:hover {
+        background-color: var(--color-surface-hover);
+        color: var(--color-text);
+        transform: translateX(3px);
+    }
+
+    .mobile-nav-link.active {
+        background-color: var(--color-surface-hover);
+        color: var(--color-text);
+        border-left: 3px solid var(--color-primary);
+    }
+
+    .mobile-nav-link.active::after {
+        display: none;
+    }
+
+    /* Przycisk 'Dodaj ustawkę' w sidebarze (wyróżniony na górze menu) */
+    .nav-item-action {
+        order: -1;
+        margin-bottom: var(--space-3);
+    }
+
+    .nav-item-action .mobile-nav-link-add {
+        width: 100%;
+        height: 44px;
+        border-radius: var(--border-radius);
+        transform: none;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-item-action .mobile-nav-link-add:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 24px var(--color-primary-glow);
+    }
+
+    .nav-label-add {
+        display: inline;
+    }
+
+    /* Dostosowanie sekcji 'Zdobyte vlepki' do szerszej przestrzeni */
+    .stickers-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: var(--space-3);
+    }
+
+    .sticker-card {
+        flex: unset;
+        min-width: unset;
+        padding: var(--space-3);
+    }
+
+    /* Wielokolumnowy układ Grid dla 'Ustawki na rejonie' */
+    .matches-list {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-4);
+    }
 }
