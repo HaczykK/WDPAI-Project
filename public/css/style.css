@@ -1,0 +1,39 @@
+:root {
+    /* Paleta kolorów - ciemny, osiedlowy klimat i mocny neonowy akcent */
+    --color-bg: #0f1115;
+    --color-surface: #1a1d24;
+    --color-surface-hover: #242934;
+    --color-primary: #ff2a4b;
+    --color-primary-hover: #e01b3a;
+    --color-text: #f5f6f8;
+    --color-muted: #9aa0a6;
+    --color-border: #2c323d;
+
+    /* Odstępy (Spacing) */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    /* Zaokrąglenia (Border Radius) */
+    --border-radius-sm: 4px;
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+}
+
+/* Uniwersalny reset box-modelu */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Podstawowe style bazowe dla body */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+

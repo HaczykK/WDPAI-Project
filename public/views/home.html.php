@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars((string) ($pageTitle ?? 'DoGrywka - Baza')) ?></title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
+    <header class="app-header">
         <h1>DoGrywka</h1>
-        <section>
+        <section class="user-status-card">
             <h2>Witaj, <?= htmlspecialchars((string) ($nickname ?? 'Kamil_10')) ?>!</h2>
             <p>Poziom gracza: <strong><?= htmlspecialchars((string) ($playerLevel ?? 'Weteran Orlika (Poziom 8)')) ?></strong></p>
         </section>
     </header>
 
-    <main>
-        <section>
+    <main class="home-layout">
+        <section class="stickers-section">
             <h2>Zdobyte vlepki</h2>
             <p>Oto odznaki i trofea zdobyte za aktywność na boisku:</p>
             <ul>
@@ -26,7 +27,7 @@
             </ul>
         </section>
 
-        <section>
+        <section class="matches-section">
             <h2>Ustawki na rejonie</h2>
             <p>Najbliższe mecze szukające zawodników w Twojej okolicy:</p>
 
@@ -65,7 +66,7 @@
         </section>
     </main>
 
-    <nav>
+    <nav class="app-nav">
         <h2>Nawigacja główna</h2>
         <ul>
             <li><a href="/">Baza</a></li>
@@ -76,7 +77,7 @@
         </ul>
     </nav>
 
-    <footer>
+    <footer class="app-footer">
         <p>&copy; <?= date('Y') ?> DoGrywka</p>
     </footer>
 </body>
