@@ -170,41 +170,6 @@
         <p class="footer-copyright">&copy; <?= date('Y') ?> DoGrywka</p>
     </footer>
 
-    <!-- Dolna nawigacja mobilna / Pasek boczny na desktopie -->
-    <nav class="mobile-nav" aria-label="Główna nawigacja">
-        <h2 class="visually-hidden">Nawigacja główna</h2>
-        <ul class="mobile-nav-list">
-            <li class="mobile-nav-item">
-                <a href="/" class="mobile-nav-link active">
-                    <span class="nav-icon">🏠</span>
-                    <span>Baza</span>
-                </a>
-            </li>
-            <li class="mobile-nav-item">
-                <a href="/rejon" class="mobile-nav-link">
-                    <span class="nav-icon">🎯</span>
-                    <span>Rejon</span>
-                </a>
-            </li>
-            <li class="mobile-nav-item nav-item-action">
-                <a href="/game-create" class="mobile-nav-link mobile-nav-link-add" aria-label="Dodaj ustawkę">
-                    <span class="nav-icon-add">+</span>
-                    <span class="nav-label-add">Dodaj ustawkę</span>
-                </a>
-            </li>
-            <li class="mobile-nav-item">
-                <a href="/szatnia" class="mobile-nav-link">
-                    <span class="nav-icon">👕</span>
-                    <span>Szatnia</span>
-                </a>
-            </li>
-            <li class="mobile-nav-item">
-                <a href="/profile" class="mobile-nav-link">
-                    <span class="nav-icon">👤</span>
-                    <span>Profil</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <?php require __DIR__ . '/components/nav.html.php'; ?>
 </body>
 </html>
