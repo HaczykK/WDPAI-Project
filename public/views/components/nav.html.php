@@ -31,5 +31,11 @@
                 <span>Profil</span>
             </a>
         </li>
+        <li class="mobile-nav-item nav-item-theme">
+            <button type="button" class="theme-toggle" aria-label="Przełącz motyw" title="Przełącz motyw">
+                <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+                <span class="theme-toggle-label">Motyw</span>
+            </button>
+        </li>
     </ul>
 </nav>
