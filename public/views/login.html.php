@@ -17,7 +17,7 @@
 <body class="auth-body">
     <!-- Pasek nawigacyjny na ekranie logowania -->
     <header class="auth-top-bar">
-        <a href="/" class="auth-nav-btn" aria-label="Wróć na stronę główną" title="Wróć do bazy">
+        <a href="/home" class="auth-nav-btn" aria-label="Wróć na stronę główną" title="Wróć do bazy">
             <span class="auth-nav-icon" aria-hidden="true">←</span>
             <span class="auth-nav-text">Wróć do bazy</span>
         </a>

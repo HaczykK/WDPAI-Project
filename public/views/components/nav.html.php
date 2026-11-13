@@ -2,7 +2,7 @@
     <h2 class="visually-hidden">Nawigacja główna</h2>
     <ul class="mobile-nav-list">
         <li class="mobile-nav-item">
-            <a href="/" class="mobile-nav-link active">
+            <a href="/home" class="mobile-nav-link active">
                 <span class="nav-icon">🏠</span>
                 <span>Baza</span>
             </a>

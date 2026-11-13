@@ -6,11 +6,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\DefaultController;
 use App\Controller\GameController;
+use App\Controller\SecurityController;
 use App\Routing;
 
 $routing = new Routing();
 
-$routing->get('/', DefaultController::class, 'index');
+$routing->get('/', SecurityController::class, 'login');
+$routing->get('/login', SecurityController::class, 'login');
+$routing->get('/home', DefaultController::class, 'index');
 $routing->get('/game/{id}', GameController::class, 'show');
 
 $routeFound = $routing->dispatch(
