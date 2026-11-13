@@ -902,3 +902,614 @@ a {
         gap: var(--space-4);
     }
 }
+
+/* ==========================================================================
+   Style dla ekranu uwierzytelniania (Logowanie / Rejestracja)
+   ========================================================================== */
+
+/* Specjalne dostosowanie body dla ekranów autoryzacji */
+body.auth-body {
+    padding-bottom: var(--space-4);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pasek nawigacyjny na górze ekranu logowania */
+.auth-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3);
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.auth-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text);
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-nav-btn:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-primary);
+    transform: translateX(-2px);
+}
+
+.auth-nav-text {
+    display: none;
+}
+
+.auth-brand-logo {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.auth-help-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.auth-help-btn:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+/* Główny układ ekranu autoryzacji */
+.auth-main-layout {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-3) var(--space-4);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Sekcja Hero / Showcase (ukryta na telefonach, widoczna na desktopie) */
+.auth-hero-showcase {
+    display: none;
+}
+
+/* Nagłówek mobilny */
+.auth-mobile-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+}
+
+.auth-avatar-badge {
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 14px var(--color-shadow);
+}
+
+.auth-welcome-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.auth-welcome-subtitle {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* Przełącznik zakładek (Zaloguj się / Zarejestruj się) */
+.auth-tabs {
+    display: flex;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 4px;
+    gap: 4px;
+}
+
+.auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: var(--space-2);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-tab:hover {
+    color: var(--color-text);
+}
+
+.auth-tab.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    box-shadow: 0 2px 10px var(--color-primary-glow);
+}
+
+/* Główna karta logowania */
+.auth-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-4);
+    box-shadow: 0 8px 24px var(--color-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Komunikaty błędów */
+.auth-alert {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.auth-alert-error {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Formularz i grupy pól */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.form-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+/* Pole wejściowe z ikoną */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.25s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.input-icon {
+    padding: 0 0 0 var(--space-2);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.form-input {
+    flex: 1;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: var(--space-2) var(--space-2);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 0.88rem;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.75;
+}
+
+/* Przycisk akcji wewnątrz inputa (np. podgląd hasła) */
+.input-action-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    padding: 0 var(--space-2);
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.input-action-btn:hover {
+    color: var(--color-text);
+}
+
+/* Wiersz opcji (zapamiętaj mnie + nie pamiętasz hasła) */
+.form-options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.76rem;
+}
+
+.form-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-checkbox {
+    accent-color: var(--color-primary);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.auth-forgot-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.auth-forgot-link:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+/* Przycisk logowania submit */
+.btn-auth-submit {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    min-height: 44px;
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    box-shadow: 0 4px 16px var(--color-primary-glow);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-auth-submit:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-primary-glow);
+}
+
+.btn-submit-icon {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+/* Rozdzielacz */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: var(--space-1) 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.auth-divider span {
+    padding: 0 var(--space-2);
+}
+
+/* Logowanie społecznościowe */
+.auth-social-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-border-card);
+    transform: translateY(-2px);
+}
+
+/* Karta promocyjna (Nowy gracz / powitalna vlepka) */
+.auth-mobile-promo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-3);
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.promo-icon-badge {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.promo-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.promo-header-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.82rem;
+}
+
+.promo-tag-pill {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    padding: 1px 6px;
+    border-radius: var(--border-radius-sm);
+    letter-spacing: 0.5px;
+}
+
+.promo-text-wrap p {
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+}
+
+/* Stopka karty z linkiem do rejestracji */
+.auth-card-footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+.auth-card-footer p {
+    margin: 0;
+}
+
+.auth-register-link {
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.auth-register-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Wariant Desktopowy dla ekranu logowania (@media min-width: 860px)
+   ========================================================================== */
+@media (min-width: 860px) {
+    .auth-nav-text {
+        display: inline;
+    }
+
+    .auth-container {
+        max-width: 1040px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: var(--space-5);
+        align-items: center;
+    }
+
+    /* Wyświetlenie kolumny Hero na desktopie */
+    .auth-hero-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        padding-right: var(--space-4);
+    }
+
+    .auth-season-tag {
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        letter-spacing: 1px;
+    }
+
+    .auth-hero-title {
+        margin: 0;
+        font-size: 2.4rem;
+        font-weight: 900;
+        line-height: 1.15;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .auth-hero-desc {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        max-width: 460px;
+    }
+
+    /* Karta promocyjna w kolumnie lewej na desktopie */
+    .auth-promo-card {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--space-3) var(--space-4);
+        margin-top: var(--space-2);
+        box-shadow: 0 4px 16px var(--color-shadow);
+    }
+
+    .promo-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .promo-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .promo-badge-tag {
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        background-color: var(--color-primary);
+        color: var(--color-text-on-primary);
+        padding: 2px 6px;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .promo-title {
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .promo-desc {
+        margin: 0;
+        font-size: 0.74rem;
+        color: var(--color-text-muted);
+    }
+
+    .promo-pill {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        border: 1px solid var(--color-accent);
+        padding: 4px 10px;
+        border-radius: var(--border-radius-full);
+        letter-spacing: 0.5px;
+    }
+
+    /* Ukrycie elementów mobilnych na desktopie */
+    .auth-mobile-header {
+        display: none;
+    }
+
+    .auth-mobile-promo {
+        display: none;
+    }
+}
