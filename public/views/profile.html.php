@@ -38,7 +38,7 @@
             <article>
                 <h3>Wyróżnienia aktywne</h3>
                 <ul>
-                    <li>Puchar: <strong>Król Strzelców Edycji Letniej</strong></li>
+                    <li>Tytuł: <strong>Stały Bywalec Rejonu</strong></li>
                     <li>Tytuł: <strong>Niezawodny Partner Zespołu</strong></li>
                 </ul>
             </article>
@@ -47,8 +47,8 @@
                 <summary>Rozwiń pełną listę odznak ze Ściany Sław</summary>
                 <ul>
                     <li>
-                        <strong>Król Strzelców Orlika</strong>
-                        <p>Zdobądź co najmniej 10 bramek w jednym sezonie ustawek. Odznaka zdobyta: 14.07.2026.</p>
+                        <strong>Stały Bywalec</strong>
+                        <p>Weź udział w co najmniej 10 ustawkach w jednym sezonie. Odznaka zdobyta: 14.07.2026.</p>
                     </li>
                     <li>
                         <strong>Niezawodny Skład</strong>

@@ -67,9 +67,9 @@
 
             <ul class="stickers-list">
                 <li class="sticker-card">
-                    <div class="sticker-badge">⚽</div>
-                    <strong class="sticker-name">Król Strzelców</strong>
-                    <span class="sticker-desc">10+ goli w sezonie</span>
+                    <div class="sticker-badge">🏅</div>
+                    <strong class="sticker-name">Stały Bywalec</strong>
+                    <span class="sticker-desc">Zawsze na zbiórce</span>
                 </li>
                 <li class="sticker-card">
                     <div class="sticker-badge">🛡️</div>
@@ -77,9 +77,9 @@
                     <span class="sticker-desc">5 meczów z rzędu</span>
                 </li>
                 <li class="sticker-card">
-                    <div class="sticker-badge">✨</div>
-                    <strong class="sticker-name">Czysta Gra</strong>
-                    <span class="sticker-desc">15 meczów bez faulu</span>
+                    <div class="sticker-badge">🌙</div>
+                    <strong class="sticker-name">Nocna Mara</strong>
+                    <span class="sticker-desc">Gierki po 21:00</span>
                 </li>
                 <li class="sticker-card">
                     <div class="sticker-badge">⚡</div>
