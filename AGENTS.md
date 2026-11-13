@@ -125,6 +125,7 @@ Kazda wartosc pochodzaca od uzytkownika lub z bazy musi byc escapowana w konteks
 ## Konwencje implementacji
 
 - Zachowuj `declare(strict_types=1)` we wszystkich nowych plikach PHP.
+- Zakres domeny: aplikacja skupia sie wylacznie na organizacji ustawek, rezerwacjach boisk/orlikow, obecnosci i frekwencji. NIE zbieramy ani nie modelujemy danych z samego przebiegu meczu (liczba bramek, strzelcy, faule, kartki, asysty). Vlepki i odznaki nagradzaja wylacznie obecnosc, punktualnosc, organizacje i zbiorki (np. Staly Bywalec, Nocna Mara, Niezawodny Sklad, Animator Rejonu).
 - Uzywaj deklaracji typow parametrow, zwracanych wartosci i wlasciwosci.
 - Nazwy klas zapisuj w `PascalCase`, metod i zmiennych w `camelCase`, a plikow widokow w `kebab-case` (`nazwa-widoku.html.php`).
 - Nazwy techniczne w kodzie zapisuj po angielsku; tekst interfejsu i domeny (vlepki, ustawki, rejon) po polsku.
