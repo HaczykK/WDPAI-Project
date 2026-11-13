@@ -8,11 +8,12 @@ To edukacyjna aplikacja webowa „DoGrywka” (organizacja lokalnych ustawek spo
 
 Aktualnie aplikacja obsluguje:
 
-- strone glowna (dashboard, vlepki, lista ustawek) pod `/`,
+- strone logowania pod `/login` (oraz glowny adres wejsciowy `/`),
+- strone glowna aplikacji (dashboard, vlepki, lista ustawek) pod `/home`,
 - szczegoly ustawki pod `/game/{id}`,
 - odpowiedz 404 dla nieznanych tras.
 
-W katalogu `public/views/` przygotowane sa rowniez szablony kolejnych widokow (`game-create`, `login`, `profile`, `rejon`, `settings`), ktore oczekuja na podpiecie tras i logiki.
+W katalogu `public/views/` przygotowane sa rowniez szablony kolejnych widokow (`home`, `game-create`, `profile`, `rejon`, `settings`), ktore oczekuja na podpiecie tras i logiki.
 
 ## Stack technologiczny
 
@@ -38,7 +39,7 @@ W katalogu `public/views/` przygotowane sa rowniez szablony kolejnych widokow (`
 │   ├── index.php              # front controller i definicje tras
 │   └── views/                 # szablony widokow (*.html.php) renderowane przez kontrolery
 ├── src/
-│   ├── controllers/           # kontrolery aplikacji (AppController, DefaultController, GameController)
+│   ├── controllers/           # kontrolery aplikacji (AppController, DefaultController, GameController, SecurityController)
 │   └── Routing.php            # rejestracja i obsluga tras
 ├── .env                       # konfiguracja zmiennych srodowiskowych i portow
 ├── composer.json              # konfiguracja autoloadingu PSR-4
