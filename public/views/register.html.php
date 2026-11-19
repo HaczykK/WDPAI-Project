@@ -16,7 +16,7 @@
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=2">
 </head>
 <body class="auth-body">
     <!-- Pasek nawigacyjny na ekranie rejestracji -->
@@ -30,6 +30,9 @@
         </div>
 
         <div class="auth-top-actions">
+            <button type="button" class="theme-toggle auth-theme-toggle" aria-label="Przełącz motyw" title="Przełącz motyw">
+                <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+            </button>
             <a href="/faq" class="auth-faq-link">POMOC / FAQ</a>
             <a href="/home" class="auth-btn-back">
                 <span aria-hidden="true">←</span>
