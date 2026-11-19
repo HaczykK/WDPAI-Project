@@ -1156,6 +1156,12 @@ body.auth-body {
     color: var(--color-primary);
 }
 
+.auth-alert-success {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
 /* Formularz i grupy pól */
 .auth-form {
     display: flex;
