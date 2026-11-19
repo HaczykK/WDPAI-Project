@@ -13,6 +13,7 @@ $routing = new Routing();
 
 $routing->get('/', SecurityController::class, 'login');
 $routing->get('/login', SecurityController::class, 'login');
+$routing->get('/register', SecurityController::class, 'register');
 $routing->get('/home', DefaultController::class, 'index');
 $routing->get('/game/{id}', GameController::class, 'show');
 

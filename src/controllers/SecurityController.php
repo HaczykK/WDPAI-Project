@@ -12,4 +12,11 @@ final class SecurityController extends AppController
             'pageTitle' => 'DoGrywka - Zaloguj się',
         ]);
     }
+
+    public function register(): void
+    {
+        $this->render('register', [
+            'pageTitle' => 'DoGrywka - Zarejestruj się',
+        ]);
+    }
 }
