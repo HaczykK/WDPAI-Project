@@ -13,6 +13,7 @@ $routing = new Routing();
 
 $routing->get('/', SecurityController::class, 'login');
 $routing->get('/login', SecurityController::class, 'login');
+$routing->post('/login', SecurityController::class, 'login');
 $routing->get('/register', SecurityController::class, 'register');
 $routing->post('/register', SecurityController::class, 'register');
 $routing->get('/home', DefaultController::class, 'index');

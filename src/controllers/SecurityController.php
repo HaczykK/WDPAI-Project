@@ -8,9 +8,50 @@ final class SecurityController extends AppController
 {
     public function login(): void
     {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+            $this->render('login', [
+                'pageTitle' => 'DoGrywka - Zaloguj się',
+            ]);
+            return;
+        }
+
+        $login = trim((string) ($_POST['login'] ?? ''));
+        $password = (string) ($_POST['password'] ?? '');
+
+        $oldInput = [
+            'login' => $login,
+        ];
+
+        $errorMessage = $this->validateLogin($login, $password);
+
+        if ($errorMessage !== null) {
+            $this->render('login', [
+                'pageTitle' => 'DoGrywka - Zaloguj się',
+                'errorMessage' => $errorMessage,
+                'oldInput' => $oldInput,
+            ]);
+            return;
+        }
+
+        // TODO: weryfikacja użytkownika w PostgreSQL, sesja i przekierowanie na /home w kolejnych commitach
         $this->render('login', [
             'pageTitle' => 'DoGrywka - Zaloguj się',
+            'successMessage' => 'Dane są poprawne! Logowanie z bazą i sesją podepniemy w kolejnym etapie.',
+            'oldInput' => $oldInput,
         ]);
+    }
+
+    private function validateLogin(string $login, string $password): ?string
+    {
+        if ($login === '') {
+            return 'Podaj adres e-mail lub login.';
+        }
+
+        if ($password === '') {
+            return 'Podaj hasło.';
+        }
+
+        return null;
     }
 
     public function register(): void

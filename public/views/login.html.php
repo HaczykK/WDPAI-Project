@@ -94,17 +94,18 @@
                         <a href="/register" class="auth-tab" role="tab" aria-selected="false">[ ZAREJESTRUJ SIĘ ]</a>
                     </div>
 
-                    <!-- Miejsce na komunikaty błędów z backendu (np. błędne hasło) -->
-                    <!--
-                    <div class="auth-alert auth-alert-error" role="alert">
-                        <span class="alert-icon" aria-hidden="true">⚠️</span>
-                        <span class="alert-message">Błędny adres e-mail lub hasło. Spróbuj ponownie.</span>
-                    </div>
-                    -->
-                    <div class="auth-alert auth-alert-error" role="alert" style="display: none;">
-                        <span class="alert-icon" aria-hidden="true">⚠️</span>
-                        <span class="alert-message">Błędny e-mail lub hasło</span>
-                    </div>
+                    <!-- Komunikaty walidacji z backendu -->
+                    <?php if (!empty($errorMessage)): ?>
+                        <div class="auth-alert auth-alert-error" role="alert">
+                            <span class="alert-icon" aria-hidden="true">⚠️</span>
+                            <span class="alert-message"><?= htmlspecialchars((string) $errorMessage, ENT_QUOTES, 'UTF-8') ?></span>
+                        </div>
+                    <?php elseif (!empty($successMessage)): ?>
+                        <div class="auth-alert auth-alert-success" role="status">
+                            <span class="alert-icon" aria-hidden="true">✔</span>
+                            <span class="alert-message"><?= htmlspecialchars((string) $successMessage, ENT_QUOTES, 'UTF-8') ?></span>
+                        </div>
+                    <?php endif; ?>
 
                     <form method="POST" action="/login" class="auth-form" novalidate>
                         <!-- Pole: E-mail lub login -->
@@ -118,6 +119,7 @@
                                     name="login"
                                     class="form-input"
                                     placeholder="np. twoj_nick lub email@blok.pl"
+                                    value="<?= htmlspecialchars((string) ($oldInput['login'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"
                                     required
                                     autocomplete="username"
                                 >
